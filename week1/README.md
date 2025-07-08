@@ -1,4 +1,4 @@
-Sure! Here's the detailed, beginner-friendly Week 1 README in Markdown format for you to paste directly into your `week1/README.md`:
+
 
 ````markdown
 # Week 1 – Linux Uptime & Cron Job Lab
