@@ -1,6 +1,4 @@
-
-
-````markdown
+`markdown
 # Week 1 – Linux Uptime & Cron Job Lab
 
 ## What I Learned  
@@ -14,20 +12,17 @@
 - Verified that the uptime data was being logged correctly over time.
 
 ## How to Run This Lab  
-1. Make the script executable:  
-   ```bash
+1. **Make the script executable:**
+bash
    chmod +x week1/uptime.sh
-````
+`
 
-2. Edit your crontab by running:
-
-   ```bash
+2. **Edit your crontab by running:**
+bash
    crontab -e
-   ```
-
-3. Add the following lines to run the script every 5 seconds using multiple cron entries with `sleep` delays:
-
-   ```cron
+   
+3. **Add the following lines to run the script every 5 seconds using multiple cron entries with sleep delays:**
+cron
    * * * * * /full/path/to/site-reliability-journey/week1/uptime.sh
    * * * * * sleep 5; /full/path/to/site-reliability-journey/week1/uptime.sh
    * * * * * sleep 10; /full/path/to/site-reliability-journey/week1/uptime.sh
@@ -40,29 +35,28 @@
    * * * * * sleep 45; /full/path/to/site-reliability-journey/week1/uptime.sh
    * * * * * sleep 50; /full/path/to/site-reliability-journey/week1/uptime.sh
    * * * * * sleep 55; /full/path/to/site-reliability-journey/week1/uptime.sh
-   ```
+   
+> **Note:** Replace `/full/path/to/site-reliability-journey/` with the actual full path to your project directory.
 
-   > Replace `/full/path/to/site-reliability-journey/` with the actual full path to your project directory.
+4. **Save and exit** the crontab editor.
 
-4. Save and exit the crontab editor.
-
-5. Wait a minute, then check `week1/uptime-log.txt` to see logged uptime entries.
-
+5. **Wait a minute**, then check the log file to see the uptime entries:
+bash
+   cat week1/uptime-log.txt
+   
 ## Resources Used
 
 * [Cron How-To — Ubuntu Documentation](https://help.ubuntu.com/community/CronHowto)
-* [Linux `uptime` Command Manual](https://man7.org/linux/man-pages/man1/uptime.1.html)
+* [Linux uptime Command Manual](https://man7.org/linux/man-pages/man1/uptime.1.html)
 * Google SRE Book (Basics of automation and monitoring)
 
 ## Challenges & Notes
 
-* Cron jobs only support scheduling at a minimum of one minute intervals, so running something every 5 seconds needs the `sleep` workaround.
-* Ensure the script path is absolute in the cron entries. Relative paths may cause the cron job to fail silently.
-* Permissions matter! The script must be executable, and cron runs under your user context unless specified otherwise.
+* **Scheduling Granularity:** Cron jobs only support scheduling at a minimum of one minute intervals, so running something every 5 seconds requires the workaround using multiple entries with `sleep` delays.
+* **Absolute Paths:** Ensure the script path in the cron entries is absolute; using relative paths may cause the cron job to fail silently.
+* **Permissions:** The script must be executable, and cron runs under your user context unless specified otherwise.
 
 ---
 
 *This README is designed to help beginners understand and practice basic Linux automation using cron and bash scripting.*
-
-```
 
