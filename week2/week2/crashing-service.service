@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "[START] $(date): Service starting..."
+
+# 50% chance to crash
+if [ $((RANDOM % 2)) -eq 0 ]; then
+  echo "[CRASH] Oops! Simulating crash..."
+  exit 1
+else
+  echo "[OK] Running smoothly."
+  sleep 5
+  exit 0
+fi
